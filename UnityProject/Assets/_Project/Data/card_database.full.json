@@ -1,0 +1,3232 @@
+{
+ "version": 3,
+ "_comment": "База карт La Cosa Nostra. Баланс правится здесь, без перекомпиляции. Все цены в $. Enum-строки совпадают с C# (JobType, MonopolyCategory, InfluenceType, BusinessKind).",
+ "balanceConfig": {
+  "startingCash": 20000,
+  "successThresholdDieFace": 5,
+  "monopolyBonus": 5000,
+  "strongestGangBonus": 15000,
+  "killStrengthMultiplier": 5000,
+  "roundsPerGame": 4,
+  "dealBalance": {
+   "greedFactorAggressive": 0.5,
+   "greedFactorEconomist": 0.8,
+   "greedFactorBalanced": 1.0,
+   "riskFactor": 0.35,
+   "aggressiveAcceptThreshold": 0.7,
+   "economistAcceptThreshold": 0.3
+  }
+ },
+ "jobs": [
+  {
+   "id": "job_r1_001#1",
+   "name": "Numbers Racket",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5400,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#2",
+   "name": "Speakeasy Raid",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 4500,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#3",
+   "name": "Beating Up a Debtor",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#4",
+   "name": "Protection Money",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 8100,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#5",
+   "name": "Trap",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#6",
+   "name": "Robbery",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#7",
+   "name": "Bootlegging Run",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9900,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#8",
+   "name": "Brothel Payday",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#9",
+   "name": "Hit on Boss",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#10",
+   "name": "Union Shakedown",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 12600,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#11",
+   "name": "Hershey's Truck Job",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 16200,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#12",
+   "name": "Burn the Competitor Store",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#13",
+   "name": "Take Over Manhattan",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 27000,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#14",
+   "name": "Commission War",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#15",
+   "name": "Numbers Racket II",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5700,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#16",
+   "name": "Speakeasy Raid II",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 4750,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#17",
+   "name": "Beating Up a Debtor II",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#18",
+   "name": "Protection Money II",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 8550,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#19",
+   "name": "Trap II",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#20",
+   "name": "Robbery II",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#21",
+   "name": "Bootlegging Run II",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 10450,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#22",
+   "name": "Brothel Payday II",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9500,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#23",
+   "name": "Hit on Boss II",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#24",
+   "name": "Union Shakedown II",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 13300,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#25",
+   "name": "Hershey's Truck Job II",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 17100,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#26",
+   "name": "Burn the Competitor Store II",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#27",
+   "name": "Take Over Manhattan II",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 28500,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#28",
+   "name": "Commission War II",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#29",
+   "name": "Numbers Racket III",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 6000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#30",
+   "name": "Speakeasy Raid III",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#31",
+   "name": "Beating Up a Debtor III",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#32",
+   "name": "Protection Money III",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 9000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#33",
+   "name": "Trap III",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#34",
+   "name": "Robbery III",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#35",
+   "name": "Bootlegging Run III",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 11000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#36",
+   "name": "Brothel Payday III",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 10000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#37",
+   "name": "Hit on Boss III",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#38",
+   "name": "Union Shakedown III",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 14000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#39",
+   "name": "Hershey's Truck Job III",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 18000,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#40",
+   "name": "Burn the Competitor Store III",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#41",
+   "name": "Take Over Manhattan III",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 30000,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#42",
+   "name": "Commission War III",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#43",
+   "name": "Numbers Racket IV",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 6300,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#44",
+   "name": "Speakeasy Raid IV",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5250,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#45",
+   "name": "Beating Up a Debtor IV",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#46",
+   "name": "Protection Money IV",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 9450,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#47",
+   "name": "Trap IV",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#48",
+   "name": "Robbery IV",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#49",
+   "name": "Bootlegging Run IV",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 11550,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#50",
+   "name": "Brothel Payday IV",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 10500,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#51",
+   "name": "Hit on Boss IV",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#52",
+   "name": "Union Shakedown IV",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 14700,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#53",
+   "name": "Hershey's Truck Job IV",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 18900,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#54",
+   "name": "Burn the Competitor Store IV",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#55",
+   "name": "Take Over Manhattan IV",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 31500,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#56",
+   "name": "Commission War IV",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#57",
+   "name": "Numbers Racket V",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5400,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#58",
+   "name": "Speakeasy Raid V",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 4500,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#59",
+   "name": "Beating Up a Debtor V",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#60",
+   "name": "Protection Money V",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 8100,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#61",
+   "name": "Trap V",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#62",
+   "name": "Robbery V",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#63",
+   "name": "Bootlegging Run V",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9900,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#64",
+   "name": "Brothel Payday V",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#65",
+   "name": "Hit on Boss V",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#66",
+   "name": "Union Shakedown V",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 12600,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#67",
+   "name": "Hershey's Truck Job V",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 16200,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#68",
+   "name": "Burn the Competitor Store V",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#69",
+   "name": "Take Over Manhattan V",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 27000,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#70",
+   "name": "Commission War V",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#71",
+   "name": "Numbers Racket VI",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5700,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#72",
+   "name": "Speakeasy Raid VI",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 4750,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#73",
+   "name": "Beating Up a Debtor VI",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#74",
+   "name": "Protection Money VI",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 8550,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#75",
+   "name": "Trap VI",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#76",
+   "name": "Robbery VI",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r2_001#77",
+   "name": "Bootlegging Run VI",
+   "description": "Канадский виски через Бронкс.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 10450,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_001",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    },
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_002#78",
+   "name": "Brothel Payday VI",
+   "description": "Собрать выручку игорно-увеселительного заведения.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 2,
+   "cashReward": 9500,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_002",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Prostitution",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r2_003#79",
+   "name": "Hit on Boss VI",
+   "description": "Заказ на правую руку соперника.",
+   "type": "Attack",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r2_003",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Entertainment",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r2_004#80",
+   "name": "Union Shakedown VI",
+   "description": "Прибрать профсоюз грузчиков к рукам.",
+   "type": "Profitable",
+   "deckRound": "RoundII",
+   "difficulty": 3,
+   "cashReward": 13300,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r2_004",
+    "backKey": "back_jobs_round2"
+   },
+   "prerequisites": [
+    {
+     "category": "Construction",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_001#81",
+   "name": "Hershey's Truck Job VI",
+   "description": "Ограбление инкассаторского грузовика (референс великого дела).",
+   "type": "Profitable",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 17100,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r3_001",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 2,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r3_002#82",
+   "name": "Burn the Competitor Store VI",
+   "description": "Поджечь бизнес конкурента — цель теряет карту.",
+   "type": "Attack",
+   "deckRound": "RoundIII",
+   "difficulty": 3,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r3_002",
+    "backKey": "back_jobs_round3"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 0,
+    "deactivateTargetBusiness": true,
+    "targetBusinessCategory": "Any"
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r4_001#83",
+   "name": "Take Over Manhattan VI",
+   "description": "Финальная операция: контроль всей сети кредиторов.",
+   "type": "Profitable",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 28500,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_001",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 2,
+     "dealAllowed": true
+    },
+    {
+     "category": "Construction",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r4_002#84",
+   "name": "Commission War VI",
+   "description": "Война за район: выбить всех гангстеров цели.",
+   "type": "Attack",
+   "deckRound": "RoundIV",
+   "difficulty": 4,
+   "cashReward": 0,
+   "diceBonus": 2,
+   "frontSprite": {
+    "key": "jobs/job_r4_002",
+    "backKey": "back_jobs_round4"
+   },
+   "prerequisites": [
+    {
+     "category": "Drugs",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": {
+    "successesToKill": 2,
+    "cashStealOnSuccess": 8000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_001#85",
+   "name": "Numbers Racket VII",
+   "description": "Выбивание долгов у лавок Малберри-стрит.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 6000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_001",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Credit",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_002#86",
+   "name": "Speakeasy Raid VII",
+   "description": "Ограбление подпольного бара.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 5000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_002",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_003#87",
+   "name": "Beating Up a Debtor VII",
+   "description": "Сломать пальцы должнику конкурента.",
+   "type": "Attack",
+   "deckRound": "RoundI",
+   "difficulty": 1,
+   "cashReward": 0,
+   "diceBonus": 1,
+   "frontSprite": {
+    "key": "jobs/job_r1_003",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": {
+    "successesToKill": 1,
+    "cashStealOnSuccess": 4000,
+    "deactivateTargetBusiness": false,
+    "targetBusinessCategory": null
+   },
+   "reaction": null
+  },
+  {
+   "id": "job_r1_004#88",
+   "name": "Protection Money VII",
+   "description": "Еженедельная дань с портового района.",
+   "type": "Profitable",
+   "deckRound": "RoundI",
+   "difficulty": 2,
+   "cashReward": 9000,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_004",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [
+    {
+     "category": "Transport",
+     "count": 1,
+     "dealAllowed": true
+    }
+   ],
+   "attack": null,
+   "reaction": null
+  },
+  {
+   "id": "job_r1_005#89",
+   "name": "Trap VII",
+   "description": "Засада на идущее дело противника: отменить действие и оштрафовать.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_005",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 2,
+    "cashPenaltyToActive": 3000,
+    "cancelAction": true,
+    "counterAttackDamage": 0
+   }
+  },
+  {
+   "id": "job_r1_006#90",
+   "name": "Robbery VII",
+   "description": "Ограбить активиста при попытке дела.",
+   "type": "Reaction",
+   "deckRound": "RoundI",
+   "difficulty": 0,
+   "cashReward": 0,
+   "diceBonus": 0,
+   "frontSprite": {
+    "key": "jobs/job_r1_006",
+    "backKey": "back_jobs_round1"
+   },
+   "prerequisites": [],
+   "attack": null,
+   "reaction": {
+    "triggerWindowPriority": 1,
+    "cashPenaltyToActive": 5000,
+    "cancelAction": false,
+    "counterAttackDamage": 0
+   }
+  }
+ ],
+ "influences": [
+  {
+   "id": "inf_henchman#1",
+   "name": "Henchman",
+   "description": "+1 кубик гангстеру.",
+   "effect": "Henchman",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/henchman",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_machine_pistol#2",
+   "name": "Machine Pistol",
+   "description": "+1 успех атаки, защита от Hitman.",
+   "effect": "MachinePistol",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/machine_pistol",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_tommy_gun#3",
+   "name": "Tommy Gun",
+   "description": "+2 кубика гангстеру.",
+   "effect": "TommyGun",
+   "modifierValue": 2,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/tommy_gun",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_distraction#4",
+   "name": "Distraction",
+   "description": "Отменяет любое нападение на вас (сбрасывается).",
+   "effect": "Distraction",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/distraction",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_saboteur#5",
+   "name": "Saboteur",
+   "description": "-1 кубик чужому гангстеру до конца действия.",
+   "effect": "Saboteur",
+   "modifierValue": 1,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/saboteur",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_snitch#6",
+   "name": "Snitch",
+   "description": "Подсмотреть одну карту дела жертвы (только вам).",
+   "effect": "Snitch",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/snitch",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_spy#7",
+   "name": "Spy",
+   "description": "Разведка: оценить риск сделки с целью.",
+   "effect": "Spy",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/spy",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_bodyguard#8",
+   "name": "Bodyguard",
+   "description": "Спасает гангстера от первого убийства.",
+   "effect": "Bodyguard",
+   "modifierValue": 0,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/bodyguard",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_henchman#9",
+   "name": "Henchman II",
+   "description": "+1 кубик гангстеру.",
+   "effect": "Henchman",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/henchman",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_machine_pistol#10",
+   "name": "Machine Pistol II",
+   "description": "+1 успех атаки, защита от Hitman.",
+   "effect": "MachinePistol",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/machine_pistol",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_tommy_gun#11",
+   "name": "Tommy Gun II",
+   "description": "+2 кубика гангстеру.",
+   "effect": "TommyGun",
+   "modifierValue": 2,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/tommy_gun",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_distraction#12",
+   "name": "Distraction II",
+   "description": "Отменяет любое нападение на вас (сбрасывается).",
+   "effect": "Distraction",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/distraction",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_saboteur#13",
+   "name": "Saboteur II",
+   "description": "-1 кубик чужому гангстеру до конца действия.",
+   "effect": "Saboteur",
+   "modifierValue": 1,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/saboteur",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_snitch#14",
+   "name": "Snitch II",
+   "description": "Подсмотреть одну карту дела жертвы (только вам).",
+   "effect": "Snitch",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/snitch",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_spy#15",
+   "name": "Spy II",
+   "description": "Разведка: оценить риск сделки с целью.",
+   "effect": "Spy",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/spy",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_bodyguard#16",
+   "name": "Bodyguard II",
+   "description": "Спасает гангстера от первого убийства.",
+   "effect": "Bodyguard",
+   "modifierValue": 0,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/bodyguard",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_henchman#17",
+   "name": "Henchman III",
+   "description": "+1 кубик гангстеру.",
+   "effect": "Henchman",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/henchman",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_machine_pistol#18",
+   "name": "Machine Pistol III",
+   "description": "+1 успех атаки, защита от Hitman.",
+   "effect": "MachinePistol",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/machine_pistol",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_tommy_gun#19",
+   "name": "Tommy Gun III",
+   "description": "+2 кубика гангстеру.",
+   "effect": "TommyGun",
+   "modifierValue": 2,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/tommy_gun",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_distraction#20",
+   "name": "Distraction III",
+   "description": "Отменяет любое нападение на вас (сбрасывается).",
+   "effect": "Distraction",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/distraction",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_saboteur#21",
+   "name": "Saboteur III",
+   "description": "-1 кубик чужому гангстеру до конца действия.",
+   "effect": "Saboteur",
+   "modifierValue": 1,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/saboteur",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_snitch#22",
+   "name": "Snitch III",
+   "description": "Подсмотреть одну карту дела жертвы (только вам).",
+   "effect": "Snitch",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/snitch",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_spy#23",
+   "name": "Spy III",
+   "description": "Разведка: оценить риск сделки с целью.",
+   "effect": "Spy",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/spy",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_bodyguard#24",
+   "name": "Bodyguard III",
+   "description": "Спасает гангстера от первого убийства.",
+   "effect": "Bodyguard",
+   "modifierValue": 0,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/bodyguard",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_henchman#25",
+   "name": "Henchman IV",
+   "description": "+1 кубик гангстеру.",
+   "effect": "Henchman",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/henchman",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_machine_pistol#26",
+   "name": "Machine Pistol IV",
+   "description": "+1 успех атаки, защита от Hitman.",
+   "effect": "MachinePistol",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/machine_pistol",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_tommy_gun#27",
+   "name": "Tommy Gun IV",
+   "description": "+2 кубика гангстеру.",
+   "effect": "TommyGun",
+   "modifierValue": 2,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/tommy_gun",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_distraction#28",
+   "name": "Distraction IV",
+   "description": "Отменяет любое нападение на вас (сбрасывается).",
+   "effect": "Distraction",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/distraction",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_saboteur#29",
+   "name": "Saboteur IV",
+   "description": "-1 кубик чужому гангстеру до конца действия.",
+   "effect": "Saboteur",
+   "modifierValue": 1,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/saboteur",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_snitch#30",
+   "name": "Snitch IV",
+   "description": "Подсмотреть одну карту дела жертвы (только вам).",
+   "effect": "Snitch",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/snitch",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_spy#31",
+   "name": "Spy IV",
+   "description": "Разведка: оценить риск сделки с целью.",
+   "effect": "Spy",
+   "modifierValue": 0,
+   "attachToGangster": false,
+   "attachToBusiness": false,
+   "isInstant": true,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/spy",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_bodyguard#32",
+   "name": "Bodyguard IV",
+   "description": "Спасает гангстера от первого убийства.",
+   "effect": "Bodyguard",
+   "modifierValue": 0,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/bodyguard",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_henchman#33",
+   "name": "Henchman V",
+   "description": "+1 кубик гангстеру.",
+   "effect": "Henchman",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/henchman",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_machine_pistol#34",
+   "name": "Machine Pistol V",
+   "description": "+1 успех атаки, защита от Hitman.",
+   "effect": "MachinePistol",
+   "modifierValue": 1,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/machine_pistol",
+    "backKey": "back_influence"
+   }
+  },
+  {
+   "id": "inf_tommy_gun#35",
+   "name": "Tommy Gun V",
+   "description": "+2 кубика гангстеру.",
+   "effect": "TommyGun",
+   "modifierValue": 2,
+   "attachToGangster": true,
+   "attachToBusiness": false,
+   "isInstant": false,
+   "oneTimeCash": 0,
+   "frontSprite": {
+    "key": "influence/tommy_gun",
+    "backKey": "back_influence"
+   }
+  }
+ ],
+ "businesses": [
+  {
+   "id": "biz_hotel#1",
+   "name": "Hotel",
+   "kind": "Company",
+   "category": "Entertainment",
+   "income": 5400,
+   "price": 7200,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/hotel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_truck_company#2",
+   "name": "Trucking Co.",
+   "kind": "Company",
+   "category": "Transport",
+   "income": 4500,
+   "price": 6300,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/truck_company",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_loan_shark#3",
+   "name": "Loan Shark Office",
+   "kind": "Company",
+   "category": "Credit",
+   "income": 6300,
+   "price": 8100,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/loan_shark",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_docks#4",
+   "name": "The Docks",
+   "kind": "Company",
+   "category": "Drugs",
+   "income": 7200,
+   "price": 9000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/docks",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_brothel#5",
+   "name": "Brothel",
+   "kind": "Company",
+   "category": "Prostitution",
+   "income": 6300,
+   "price": 8100,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/brothel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_construction_firm#6",
+   "name": "Construction Firm",
+   "kind": "Company",
+   "category": "Construction",
+   "income": 5400,
+   "price": 7200,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/construction_firm",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_accountant#7",
+   "name": "Accountant",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 2700,
+   "price": 4500,
+   "maxDealIncome": 1,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/accountant",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_politician#8",
+   "name": "Politician",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 3600,
+   "price": 5400,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/politician",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_lawyer#9",
+   "name": "Lawyer",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 3600,
+   "price": 5400,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/lawyer",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_labour_leader#10",
+   "name": "Labour Leader",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 2700,
+   "price": 4500,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/labour_leader",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_chambermaid#11",
+   "name": "Chambermaid",
+   "kind": "Businessman",
+   "category": "Prostitution",
+   "income": 1800,
+   "price": 2700,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/chambermaid",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_casinoboss#12",
+   "name": "Casino Boss",
+   "kind": "Businessman",
+   "category": "Entertainment",
+   "income": 4500,
+   "price": 6300,
+   "maxDealIncome": 1,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/casino_boss",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_hotel#13",
+   "name": "Hotel II",
+   "kind": "Company",
+   "category": "Entertainment",
+   "income": 5700,
+   "price": 7600,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/hotel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_truck_company#14",
+   "name": "Trucking Co. II",
+   "kind": "Company",
+   "category": "Transport",
+   "income": 4750,
+   "price": 6650,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/truck_company",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_loan_shark#15",
+   "name": "Loan Shark Office II",
+   "kind": "Company",
+   "category": "Credit",
+   "income": 6650,
+   "price": 8550,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/loan_shark",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_docks#16",
+   "name": "The Docks II",
+   "kind": "Company",
+   "category": "Drugs",
+   "income": 7600,
+   "price": 9500,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/docks",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_brothel#17",
+   "name": "Brothel II",
+   "kind": "Company",
+   "category": "Prostitution",
+   "income": 6650,
+   "price": 8550,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/brothel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_construction_firm#18",
+   "name": "Construction Firm II",
+   "kind": "Company",
+   "category": "Construction",
+   "income": 5700,
+   "price": 7600,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/construction_firm",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_accountant#19",
+   "name": "Accountant II",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 2850,
+   "price": 4750,
+   "maxDealIncome": 1,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/accountant",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_politician#20",
+   "name": "Politician II",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 3800,
+   "price": 5700,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/politician",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_lawyer#21",
+   "name": "Lawyer II",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 3800,
+   "price": 5700,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/lawyer",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_labour_leader#22",
+   "name": "Labour Leader II",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 2850,
+   "price": 4750,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/labour_leader",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_chambermaid#23",
+   "name": "Chambermaid II",
+   "kind": "Businessman",
+   "category": "Prostitution",
+   "income": 1900,
+   "price": 2850,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/chambermaid",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_casinoboss#24",
+   "name": "Casino Boss II",
+   "kind": "Businessman",
+   "category": "Entertainment",
+   "income": 4750,
+   "price": 6650,
+   "maxDealIncome": 1,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/casino_boss",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_hotel#25",
+   "name": "Hotel III",
+   "kind": "Company",
+   "category": "Entertainment",
+   "income": 6000,
+   "price": 8000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/hotel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_truck_company#26",
+   "name": "Trucking Co. III",
+   "kind": "Company",
+   "category": "Transport",
+   "income": 5000,
+   "price": 7000,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/truck_company",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_loan_shark#27",
+   "name": "Loan Shark Office III",
+   "kind": "Company",
+   "category": "Credit",
+   "income": 7000,
+   "price": 9000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/loan_shark",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_docks#28",
+   "name": "The Docks III",
+   "kind": "Company",
+   "category": "Drugs",
+   "income": 8000,
+   "price": 10000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/docks",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_brothel#29",
+   "name": "Brothel III",
+   "kind": "Company",
+   "category": "Prostitution",
+   "income": 7000,
+   "price": 9000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/brothel",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "biz_construction_firm#30",
+   "name": "Construction Firm III",
+   "kind": "Company",
+   "category": "Construction",
+   "income": 6000,
+   "price": 8000,
+   "maxDealIncome": 3,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": false,
+   "frontSprite": {
+    "key": "business/construction_firm",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_accountant#31",
+   "name": "Accountant III",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 3000,
+   "price": 5000,
+   "maxDealIncome": 1,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/accountant",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_politician#32",
+   "name": "Politician III",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 4000,
+   "price": 6000,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/politician",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_lawyer#33",
+   "name": "Lawyer III",
+   "kind": "Businessman",
+   "category": "Credit",
+   "income": 4000,
+   "price": 6000,
+   "maxDealIncome": 0,
+   "cannotBeDealt": true,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/lawyer",
+    "backKey": "back_business"
+   }
+  },
+  {
+   "id": "bnz_labour_leader#34",
+   "name": "Labour Leader III",
+   "kind": "Businessman",
+   "category": "Construction",
+   "income": 3000,
+   "price": 5000,
+   "maxDealIncome": 2,
+   "cannotBeDealt": false,
+   "blocksMonopolyCount": true,
+   "frontSprite": {
+    "key": "business/labour_leader",
+    "backKey": "back_business"
+   }
+  }
+ ],
+ "gangsters": [
+  {
+   "id": "gn_thug",
+   "name": "Thug",
+   "strength": 1,
+   "specialization": "Thug",
+   "recruitCost": 3000,
+   "isAlive": true,
+   "frontSprite": {
+    "key": "gangsters/thug",
+    "backKey": "back_gangster"
+   }
+  },
+  {
+   "id": "gn_driver",
+   "name": "Getaway Driver",
+   "strength": 1,
+   "specialization": "Driver",
+   "recruitCost": 4000,
+   "isAlive": true,
+   "frontSprite": {
+    "key": "gangsters/driver",
+    "backKey": "back_gangster"
+   }
+  },
+  {
+   "id": "gn_hitman",
+   "name": "Hitman",
+   "strength": 2,
+   "specialization": "Hitman",
+   "recruitCost": 6000,
+   "isAlive": true,
+   "frontSprite": {
+    "key": "gangsters/hitman",
+    "backKey": "back_gangster"
+   }
+  },
+  {
+   "id": "gn_capo",
+   "name": "Capo",
+   "strength": 3,
+   "specialization": "Boss",
+   "recruitCost": 9000,
+   "isAlive": true,
+   "frontSprite": {
+    "key": "gangsters/capo",
+    "backKey": "back_gangster"
+   }
+  }
+ ]
+}
